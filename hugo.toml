@@ -68,3 +68,6 @@ theme = "diary"
   url = "/index.xml"
   name = "RSS"
   weight = 4
+
+[security]
+  enableInlineShortcodes = true
