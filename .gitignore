@@ -4,6 +4,9 @@
 /resources/images/
 /.hugo_build.lock
 
+# 本地诊断/工具（非仓库内容）
+/.hugotmp/
+
 # OS
 .DS_Store
 Thumbs.db

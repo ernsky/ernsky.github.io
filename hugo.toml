@@ -32,6 +32,11 @@ enableInlineShortcodes = true
   keywords = ["Hugo", "随笔", "技术"]
   description = "Ernsky 的个人博客"
 
+  # RSS 作者信息（供 index.rss.xml 使用）
+  [params.author]
+    name = "Ernsky"
+    email = "ernsky@example.com"
+
   # 评论（先关掉，需要时再开）
   enableGitalk = false
   enableGiscus = false

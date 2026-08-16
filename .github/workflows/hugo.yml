@@ -32,12 +32,16 @@ jobs:
 
       - name: Debug theme presence
         run: |
-          echo "Hugo version:"; hugo version
+          hugo version
+          echo "---- git submodule status ----"
+          git submodule status || true
+          echo "---- themes dir ----"
+          ls -la themes 2>&1 || true
           if [ -f themes/diary/theme.toml ] || [ -f themes/diary/theme.yaml ]; then
-            echo "THEME PRESENT at themes/diary"
+            echo "::notice::THEME PRESENT at themes/diary"
           else
             echo "::error::THEME MISSING - themes/diary not found or incomplete"
-            echo "---- themes dir ----"; ls -la themes 2>&1 || true
+            exit 1
           fi
 
       - name: Build with Hugo
@@ -47,7 +51,8 @@ jobs:
           code=$?
           echo "$OUT"
           if [ $code -ne 0 ]; then
-            echo "::error::HUGO BUILD FAILED (exit $code): $OUT"
+            OUT1=$(printf '%s' "$OUT" | tr '\n' ' ' | tr '\r' ' ')
+            echo "::error::HUGO BUILD FAILED (exit $code): $OUT1"
             exit $code
           fi
 
