@@ -1,73 +1,62 @@
 baseURL = "https://ernsky.github.io/"
-defaultContentLanguage = "zh"
 languageCode = "zh-cn"
 title = "Ernsky 的小站"
-copyright = "© 2026 Ernsky"
-theme = "diary"
-enableInlineShortcodes = true
+theme = "PaperMod"
 
-# 站点地图
-[sitemap]
-  changefreq = "always"
-  filename = "sitemap.xml"
-  priority = 0.5
-
-# Hugo 0.124+ 默认 chroma；diary 主题使用 monokai 风格
+# 代码高亮（Hugo 内置 chroma，PaperMod 使用）
 [markup]
   [markup.highlight]
-    codeFences = true
-    guessSyntax = false
+    style = "monokai"
     lineNos = false
     noClasses = true
-    style = "monokai"
-    tabWidth = 2
   [markup.goldmark.renderer]
     unsafe = true
 
 [params]
-  # 顶部副标题
-  subtitle = "隻言片語・於此匯聚"
+  # 站点描述 / 关键词（用于 SEO 与分享卡片）
+  description = "Ernsky 的个人博客，记录随笔与技术"
+  keywords = ["Hugo", "PaperMod", "随笔", "技术"]
+  author = "Ernsky"
+  # 默认主题：auto 跟随系统，可选 dark / light
+  defaultTheme = "auto"
+  # 主页展示哪些栏目（普通博客模式，展示文章列表）
+  mainSections = ["posts"]
+  # 是否显示分享按钮
+  enableShare = false
 
-  # 侧栏信息
-  keywords = ["Hugo", "随笔", "技术"]
-  description = "Ernsky 的个人博客"
+  # 左上角小标签（可选，不需要可删掉这一段）
+  [params.label]
+    text = "笔记"
+    icon = "📝"
 
-  # RSS 作者信息（供 index.rss.xml 使用）
-  [params.author]
-    name = "Ernsky"
-    email = "ernsky@example.com"
+  # 社交链接（按需修改 / 删除）
+  [[params.social]]
+    name = "GitHub"
+    icon = "github"
+    url = "https://github.com/ernsky"
+  [[params.social]]
+    name = "Email"
+    icon = "email"
+    url = "mailto:ernsky@example.com"
 
-  # 评论（先关掉，需要时再开）
-  enableGitalk = false
-  enableGiscus = false
-  enableLiveRe = false
-  enableWaline = false
-  enableTwikoo = false
-
-  # Open Graph / Twitter Card
-  enableOpenGraph = true
-  enableTwitterCards = true
-
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-
+# 顶部菜单
 [[menu.main]]
-  url = "/posts/"
+  identifier = "archive"
   name = "归档"
-  weight = 1
-
+  url = "/posts/"
+  weight = 10
 [[menu.main]]
-  url = "/categories/"
+  identifier = "categories"
   name = "分类"
-  weight = 2
-
+  url = "/categories/"
+  weight = 20
 [[menu.main]]
-  url = "/tags/"
+  identifier = "tags"
   name = "标签"
-  weight = 3
-
+  url = "/tags/"
+  weight = 30
 [[menu.main]]
-  url = "/index.xml"
+  identifier = "rss"
   name = "RSS"
-  weight = 4
+  url = "/index.xml"
+  weight = 40
