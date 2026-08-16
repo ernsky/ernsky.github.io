@@ -1,67 +1,70 @@
 baseURL = "https://ernsky.github.io/"
+defaultContentLanguage = "zh"
 languageCode = "zh-cn"
-defaultContentLanguage = "zh-cn"
-title = "御心"
-theme = "PaperMod"
+title = "Ernsky 的小站"
+copyright = "© 2026 Ernsky"
+theme = "diary"
 
-# Generate a nice robots.txt
-enableRobotsTXT = true
+# 站点地图
+[sitemap]
+  changefreq = "always"
+  filename = "sitemap.xml"
+  priority = 0.5
 
-# Useful when migrating from Jekyll
-disableKinds = []
-
-# 不在生产环境输出 .md 文件
-buildDrafts = false
-buildFuture = false
-buildExpired = false
-
-# 强制部署到根路径
-relativeURLs = false
+# Hugo 0.124+ 默认 chroma；diary 主题使用 perldoc 风格
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    lineNos = false
+    noClasses = true
+    style = "monokai"
+    tabWidth = 2
 
 [params]
-  env = "production"
-  Description = "御心"
-  author = "御心"
-  defaultTheme = "auto"
-  ShowReadingTime = true
-  ShowShareButtons = true
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
-  ShowCodeCopyButtons = true
-  ShowRssButtonInSectionTermList = true
-  ShowAllPagesInHomepage = true
-  disableSpecial1stPost = true
-  comments = false
+  # 顶部副标题
+  subtitle = "隻言片語・於此匯聚"
 
-  # 你可以改成自己的社交链接，没有就留空
-  [[params.socialIcons]]
-    name = "github"
-    title = "GitHub"
-    url = "https://github.com/ernsky"
+  # 侧栏信息（用于右上角头像下方的简介）
+  keywords = ["Hugo", "随笔", "技术"]
+  description = "Ernsky 的个人博客"
 
-[menu]
-  [[menu.main]]
-    identifier = "home"
-    name = "首页"
-    url = "/"
-    weight = 1
-  [[menu.main]]
-    identifier = "posts"
-    name = "文章"
-    url = "/posts/"
-    weight = 2
-  [[menu.main]]
-    identifier = "archives"
-    name = "归档"
-    url = "/archives/"
-    weight = 3
-  [[menu.main]]
-    identifier = "tags"
-    name = "标签"
-    url = "/tags/"
-    weight = 4
-  [[menu.main]]
-    identifier = "search"
-    name = "搜索"
-    url = "/search/"
-    weight = 5
+  # 评论（先关掉，需要时再开）
+  enableGitalk = false
+  enableGiscus = false
+  enableLiveRe = false
+  enableWaline = false
+  enableTwikoo = false
+
+  # Open Graph / Twitter Card
+  enableOpenGraph = true
+  enableTwitterCards = true
+  title = "Ernsky 的小站"
+  description = "Ernsky 的个人博客"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# 注意：示例 config 里用 `DefaultContentLanguage`，Hugo 0.110+ 规范写法是
+# `defaultContentLanguage`（小写），效果相同。
+
+[[menu.main]]
+  url = "/posts"
+  name = "归档"
+  weight = 1
+
+[[menu.main]]
+  url = "/categories"
+  name = "分类"
+  weight = 2
+
+[[menu.main]]
+  url = "/tags"
+  name = "标签"
+  weight = 3
+
+[[menu.main]]
+  url = "/index.xml"
+  name = "RSS"
+  weight = 4
