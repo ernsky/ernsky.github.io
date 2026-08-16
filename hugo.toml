@@ -1,0 +1,67 @@
+baseURL = "https://ernsky.github.io/"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "御心"
+theme = "PaperMod"
+
+# Generate a nice robots.txt
+enableRobotsTXT = true
+
+# Useful when migrating from Jekyll
+disableKinds = []
+
+# 不在生产环境输出 .md 文件
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# 强制部署到根路径
+relativeURLs = false
+
+[params]
+  env = "production"
+  Description = "御心"
+  author = "御心"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
+  ShowAllPagesInHomepage = true
+  disableSpecial1stPost = true
+  comments = false
+
+  # 你可以改成自己的社交链接，没有就留空
+  [[params.socialIcons]]
+    name = "github"
+    title = "GitHub"
+    url = "https://github.com/ernsky"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "首页"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 3
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 4
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 5
