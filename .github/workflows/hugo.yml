@@ -30,8 +30,15 @@ jobs:
           hugo-version: "latest"
           extended: true
 
+      - name: Debug theme presence
+        run: |
+          echo "Hugo version:"; hugo version
+          echo "themes/diary contents:"; ls -la themes/diary 2>&1 || echo "THEME MISSING"
+
       - name: Build with Hugo
-        run: hugo --minify --baseURL "https://ernsky.github.io/"
+        run: |
+          set -o pipefail
+          hugo --minify --baseURL "https://ernsky.github.io/" 2>&1 | tee "${GITHUB_STEP_SUMMARY}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
