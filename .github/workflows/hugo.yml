@@ -33,12 +33,23 @@ jobs:
       - name: Debug theme presence
         run: |
           echo "Hugo version:"; hugo version
-          echo "themes/diary contents:"; ls -la themes/diary 2>&1 || echo "THEME MISSING"
+          if [ -f themes/diary/theme.toml ] || [ -f themes/diary/theme.yaml ]; then
+            echo "THEME PRESENT at themes/diary"
+          else
+            echo "::error::THEME MISSING - themes/diary not found or incomplete"
+            echo "---- themes dir ----"; ls -la themes 2>&1 || true
+          fi
 
       - name: Build with Hugo
         run: |
           set -o pipefail
-          hugo --minify --baseURL "https://ernsky.github.io/" 2>&1 | tee "${GITHUB_STEP_SUMMARY}"
+          OUT=$(hugo --minify --baseURL "https://ernsky.github.io/" 2>&1)
+          code=$?
+          echo "$OUT"
+          if [ $code -ne 0 ]; then
+            echo "::error::HUGO BUILD FAILED (exit $code): $OUT"
+            exit $code
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
