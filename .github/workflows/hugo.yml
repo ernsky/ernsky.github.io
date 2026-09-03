@@ -37,10 +37,10 @@ jobs:
           git submodule status || true
           echo "---- themes dir ----"
           ls -la themes 2>&1 || true
-          if [ -f themes/PaperMod/theme.toml ]; then
-            echo "::notice::THEME PRESENT at themes/PaperMod"
+          if [ -f themes/hugo-theme-next/theme.toml ]; then
+            echo "::notice::THEME PRESENT at themes/hugo-theme-next"
           else
-            echo "::error::THEME MISSING - themes/PaperMod not found or incomplete"
+            echo "::error::THEME MISSING - themes/hugo-theme-next not found or incomplete"
             exit 1
           fi
 

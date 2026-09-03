@@ -1,7 +1,7 @@
 baseURL = "https://ernsky.github.io/"
 languageCode = "zh-cn"
 title = "Ernsky 的小站"
-theme = "PaperMod"
+theme = "hugo-theme-next"
 
 # 代码高亮（Hugo 内置 chroma，PaperMod 使用）
 [markup]
