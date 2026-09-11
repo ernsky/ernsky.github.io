@@ -2,7 +2,7 @@
 # https://github.com/ldm0715/xuanzhi
 
 baseURL = 'https://ernsky.github.io/'
-title = 'Ernsky'
+title = '御心'
 theme = 'xuanzhi'
 defaultContentLanguage = 'zh-cn'
 
@@ -28,7 +28,7 @@ enableEmoji = true
 
 [params]
   accent = 'terracotta'
-  author = 'Ernsky'
+  author = '御心'
   description = '记录随笔与技术，一建备考中'
   mainSections = ['posts']
   [params.hero]
