@@ -2,7 +2,6 @@
 
 {{/* ============ 山水画框卡片 · 双栏 ============ */}}
 <div class="container" id="recent">
-  <h2 class="home-heading">{{ i18n "recentPosts" }}</h2>
   {{ $pages := where site.RegularPages "Type" "in" site.MainSections -}}
   {{ $paginator := .Paginate $pages 8 -}}
   <section class="inkcard-grid">
