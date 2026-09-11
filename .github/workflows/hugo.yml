@@ -45,6 +45,14 @@ jobs:
             exit $code
           fi
 
+      - name: Setup Node for Pagefind
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Generate Pagefind index
+        run: npx pagefind --site public
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
